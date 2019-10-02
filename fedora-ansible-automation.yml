@@ -1,0 +1,120 @@
+
+
+---
+#
+# Prereqs
+#  - sudo dnf install ansible
+#  - cd /etc/ansible && ansible-playbook <playbook> --ask-become
+#
+# Post install
+#  - Software store - Install Dash to Panel
+#
+- hosts: localhost
+  become: true
+
+  vars:
+    dash_to_panel_git: https://github.com/home-sweet-gnome/dash-to-panel.git
+    slack_linux_rpm: https://downloads.slack-edge.com/linux_releases/slack-3.3.8-0.1.fc21.x86_64.rpm
+    teams_linux_rpm: https://github.com/IsmaelMartinez/teams-for-linux/releases/download/v0.1.17/teams-for-linux-0.1.17.x86_64.rpm
+    sky_linux_rpm: https://tel.red/repos/fedora/29/noarch/telred-fedora-29-latest.fc29.noarch.rpm
+    dropbox_linux_rpm: https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2019.02.14-1.fedora.x86_64.rpm
+    vs_code_repo: |
+      [code]
+      name=Visual Studio Code
+      baseurl=https://packages.microsoft.com/yumrepos/vscode
+      enabled=1
+      gpgcheck=1
+      gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+
+  tasks:
+
+    - name: Setting Username
+      become: false
+      command: whoami
+      register: username
+
+    - name: Adjust profile history settings
+      replace:
+        path: "/home/{{ username.stdout }}/.bashrc"
+        regexp: "{{ item.before }}"
+        replace: "{{ item.after }}"
+      with_items:
+        - before: "HISTSIZE=1000"
+          after: "HISTSIZE=5000"
+        - before: "HISTFILESIZE=2000"
+          after: "HISTFILESIZE=10000"
+
+    - name: Adding dnf repo keys
+      rpm_key:
+        state: present
+        key: "{{ item }}"
+      loop:
+        - https://packages.microsoft.com/keys/microsoft.asc
+        - https://download.docker.com/linux/fedora/gpg
+        - https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+        - https://dl.google.com/linux/linux_signing_key.pub
+
+    - name: Add docker repo
+      shell: "dnf config-manager --add-repo {{ item }}"
+      loop:
+        - https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+        - https://download.docker.com/linux/fedora/docker-ce.repo
+
+    - name: Add vs code repo
+      blockinfile:
+        path: /etc/yum.repos.d/vscode.repo
+        block: "{{ vs_code_repo }}"
+        create: yes
+        mode: 755
+
+    - name: Installing Atom
+      shell: dnf install -y $(curl -sL "https://api.github.com/repos/atom/atom/releases/latest" | grep "https.*atom.x86_64.rpm" | cut -d '"' -f 4)
+
+    - name: Install dnf prereqs
+      dnf:
+        name:
+          - dnf-plugins-core
+          - fedora-workstation-repositories
+        state: latest
+
+    - name: Enabling chrome repo
+      shell: dnf config-manager --set-enabled google-chrome
+
+    - name: Installing additional packages
+      dnf:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - libXScrnSaver
+          - libappindicator
+          - google-chrome-stable
+          - htop
+          - git
+          - python-pip
+          - "{{ slack_linux_rpm }}"
+          - "{{ teams_linux_rpm }}"
+          - "{{ sky_linux_rpm }}"
+          - "{{ dropbox_linux_rpm }}"
+          - code
+          - sublime-text
+          - snapd
+        state: present
+        disable_gpg_check: yes
+
+    - name: Installing spotify
+      shell: snap install spotify
+
+    - name: Add user to docker admins group
+      user:
+        name: "{{ username.stdout }}"
+        group: docker
+
+    - name: Start the docker service
+      systemd:
+        state: started
+        name: docker
+
+    - name: Rebooting
+      shell: reboot
+
