@@ -1,5 +1,5 @@
 # Purpose:    Updates autoscaling launch config
-# Deployment: Python2.7 Lambda
+# Deployment: Python2.7 Lambda / Will update to 3.6 at some point.
 # Trigger:    Scheduled from Cloudwatch
 
 from __future__ import print_function
