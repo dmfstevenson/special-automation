@@ -23,6 +23,9 @@ except:
 
 # get a list of vaults
 vaults = client.list_backup_vaults()
+## To give a specified Vault use the line below
+#vaults = {'BackupVaultList' : [{ 'BackupVaultName' : 'nonprod_backup_rdsvault'}]}
+
 
 # loop through each vault
 backupjobs = []
