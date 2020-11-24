@@ -33,12 +33,14 @@ for vault in vaults['BackupVaultList']:
 
     response  = client.list_recovery_points_by_backup_vault(
                     BackupVaultName=vault['BackupVaultName'],
+                    # ByResourceType='EBS', # To specify a resource, define it here
                     ByCreatedBefore=tdelta
                 )
     backupjobs += response['RecoveryPoints']
     while 'NextToken' in response.keys():
         response  = client.list_recovery_points_by_backup_vault(
                         BackupVaultName=vault['BackupVaultName'],
+                        # ByResourceType='EC2', # To specify a resource, define it here
                         ByCreatedBefore=tdelta,
                         NextToken=response['NextToken']
                     )
