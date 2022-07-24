@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-07-24T22:53:56.131Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="WS6YX9f6zQY4uB-FexXw" version="20.2.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-07-24T22:54:16.982Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="_ysNAC-fxL2dVPNYnmbl" version="20.2.0" type="github">
   <diagram id="6AnSA3RJTRYgEw0tH2CT" name="Page-1">
     <mxGraphModel dx="2062" dy="1114" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -87,9 +87,6 @@
         </mxCell>
         <mxCell id="ID5WrlmeyZF7hxuu02SM-55" value="TGW" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#945DF2;gradientDirection=north;fillColor=#5A30B5;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.transit_gateway;" parent="ID5WrlmeyZF7hxuu02SM-50" vertex="1">
           <mxGeometry x="490" y="40" width="78" height="78" as="geometry" />
-        </mxCell>
-        <mxCell id="WJruqmWTiAC5LlsitGRp-1" value="AD/ Core OU" style="sketch=0;aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Azure_AD_Privileged_Identity_Management.svg;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="488" y="254" width="50" height="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
