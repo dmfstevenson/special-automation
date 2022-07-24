@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-07-24T23:00:54.458Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="6dr3QRBl0eXjMMqE3ka5" version="20.2.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-07-24T23:03:26.833Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="JapLw7NeyAvn48_y9gm9" version="20.2.0" type="github">
   <diagram id="6AnSA3RJTRYgEw0tH2CT" name="Page-1">
     <mxGraphModel dx="2062" dy="1114" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -14,7 +14,7 @@
           <mxGeometry x="40" y="40" width="75" height="78" as="geometry" />
         </mxCell>
         <mxCell id="ID5WrlmeyZF7hxuu02SM-4" value="Pipeline&amp;nbsp;" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.github_code;pointerEvents=1;fontStyle=1" parent="ID5WrlmeyZF7hxuu02SM-1" vertex="1">
-          <mxGeometry x="200" y="34" width="90" height="90" as="geometry" />
+          <mxGeometry x="180" y="34" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="ID5WrlmeyZF7hxuu02SM-5" value="AWS SSO" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#F54749;gradientDirection=north;fillColor=#C7131F;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.single_sign_on;" parent="ID5WrlmeyZF7hxuu02SM-1" vertex="1">
           <mxGeometry x="520" y="40" width="78" height="78" as="geometry" />
